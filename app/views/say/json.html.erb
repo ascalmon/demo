@@ -1,0 +1,61 @@
+<h1>Say#Json Conversion</h1>
+<p>
+  Today is: <%= @date %>
+</p>
+<p>
+  Hello! this is the category array ->  <%= @arraycategories %>
+</p>
+<p>
+  
+  <form method="get" action="json">
+    <%= @arraycategories[0] %> <input type="checkbox" name="check0" >
+    <%= @arraycategories[1] %> <input type="checkbox" name="check1" >
+    <%= @arraycategories[2] %> <input type="checkbox" name="check2" >
+    <%= @arraycategories[3] %> <input type="checkbox" name="check3" >
+    <%= @arraycategories[4] %> <input type="checkbox" name="check4" >
+    <%= @arraycategories[5] %> <input type="checkbox" name="check5" >
+    <%= @arraycategories[6] %> <input type="checkbox" name="check6" >
+    <input type="submit"> 
+  </form>
+  </br>
+  
+ 
+  <% seljson = [] %>
+  <% if params[:check0] == "on" %>
+       <% seljson[0] = @arraycategories[0] %>
+  <% end %>
+  <% if params[:check1] == "on" %>
+       <% seljson[1] = @arraycategories[1] %>
+  <% end %>
+ <% if params[:check2] == "on" %>
+       <% seljson[2] = @arraycategories[2] %>
+  <% end %>
+ <% if params[:check3] == "on" %>
+       <% seljson[3] = @arraycategories[3] %>
+  <% end %>
+ <% if params[:check4] == "on" %>
+       <% seljson[4] = @arraycategories[4] %>
+  <% end %>
+ <% if params[:check5] == "on" %>
+       <% seljson[5] = @arraycategories[5] %>
+  <% end %>
+ <% if params[:check6] == "on" %>
+       <% seljson[6] = @arraycategories[6] %>
+  <% end %>
+  
+  <%= seljson %>
+</br>
+ 
+  <% jsonarray = JSON.generate(seljson).to_json %>
+  JSON array format<%= jsonarray %>
+
+  
+  
+</p>
+
+<p>Find me in app/views/say/json.html.erb</p>
+<p>
+  <%= link_to "Goodbye", say_goodbye_path %>
+  <%= link_to "Antonio", say_antonio_path %>
+  <%= link_to "Hello", say_hello_path %>
+</p>

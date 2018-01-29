@@ -1,0 +1,52 @@
+<h1>Say#antonio</h1>
+<p>
+  Today is: <%= @date %>
+</p>
+<p>
+  It is time to say hello to <%= @firstname + " - " + @lastname %>
+</p>
+<p>Find me in app/views/say/antonio.html.erb</p>
+
+<p>
+  Directory: <%= @files %> 
+</p>
+<p>
+  Number of files: <%= @size %>
+</p>
+<p>
+  Third File: <%= @file %>
+</p>
+<p>
+ <% @name = params[:pass]  %>
+ <%= "Valor do gets = #{@name}" %>
+</br>
+ <% @check = Digest::SHA2.new << @name %>
+ <%= "Valor do SHA2 = #{@check}" %>
+</p>
+<p>
+  Password SHA2: <%= @pass %>
+</p>
+<p>
+  <form method="get" action="antonio">
+    <label>Password:</label>
+    <input type="password" name="pass">
+    <input type="submit"> 
+  </form>
+</p>
+<%= "Daniel's Logo" %>
+<%= image_tag('DV_Logo.png', style: "height: 30px; width: 30px") %>
+<p>
+  <table border="solid 1px">
+  <tr>
+    <th>Filename</th>
+  </tr>
+  <%= @files.each do |file| %>
+    <tr>
+      <td><%= file %></td>
+    </tr>
+  <% end %>
+</table>
+</p>
+
+<%= link_to "Hello", say_hello_path %>
+<%= link_to "Goodbye", say_goodbye_path %>
